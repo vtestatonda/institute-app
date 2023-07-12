@@ -79,7 +79,7 @@ const SignIn = () => {
       </div>
       <div className=" ">
         <label className=" textform   p-2 text-dark ">
-          <p className="p-0 m-0 fs-3 fw-bold"> SITBA</p>
+          <p className="p-0 m-0 fs-3 fw-bold"> Institute demo</p>
           <p className="p-0 m-0">
             {signInTranslation("signIn.introductionText0")}
           </p>

@@ -146,11 +146,11 @@ const Sidebar = () => {
         ) : (
           <></>
         )}
-        <Link to={"/LogOut"} className="sidebar-container__list__item">
+        <Link to={"/LogOut"} className="sidebar-container__list__item  ">
           <div className="sidebar-container__list__item__img">
             <BiLogOut size="2rem" />
           </div>
-          <div className="sidebar-container__list__item__title">
+          <div className="sidebar-container__list__item__title ">
             {sidebarTranslation("sidebar.LogOut")}
           </div>
         </Link>
@@ -159,10 +159,10 @@ const Sidebar = () => {
         <div className="sidebar-container__footer__logo"></div>
         <div className="sidebar-container__footer__data">
           <div className="sidebar-container__footer__data__title">
-            S I T B A
+            Victorio Testatonda
           </div>
           <div className="sidebar-container__footer__data__subtitle">
-            technological solutions
+            Software Developer{" "}
           </div>
         </div>
       </div>
