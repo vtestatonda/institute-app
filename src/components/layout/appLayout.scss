@@ -1,0 +1,274 @@
+//General
+body {
+  height: 100vh;
+  display: flex;
+  width: 100vw;
+}
+
+.outlet {
+  flex: 0 0 auto;
+  width: 80%;
+  height: 100%;
+}
+
+@mixin mobile {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+// Sidebar
+.sidebar-container {
+  font-family: "Segoe UI Symbol";
+  font-size: large;
+  font-weight: bold;
+  width: 20%;
+  height: 100%;
+  background-color: rgb(146, 194, 241);
+  @include mobile {
+    width: 50px;
+  }
+  &__header {
+    display: flex;
+    padding: 15px 20px;
+    @include mobile {
+      padding: 15px 5px;
+    }
+    background-color: rgb(146, 194, 241);
+    gap: 15px;
+    &__logo {
+      color: black;
+    }
+    &__brand {
+      color: black;
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+}
+
+//sideBar list
+.sidebar-container {
+  &__list {
+    max-height: 70%;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      /* WebKit */
+      width: 10;
+      height: 0;
+    }
+
+    &__item {
+      text-decoration: none;
+      cursor: pointer;
+      padding: 5px 20px 5px 5px;
+      margin: 5px 5px 0px 5px;
+      @include mobile {
+        padding: 4px 5px 5px 5px;
+        margin: 0px 5px 5px 5px;
+      }
+      display: flex;
+      gap: 15px;
+      color: #666;
+      transition: all 0.3s ease;
+      &__title {
+        @include mobile {
+          display: none;
+        }
+      }
+    }
+    &__item:hover {
+      color: white;
+      background-color: #33ade173;
+      border: 1px solid #666;
+      border-radius: 5px;
+    }
+    &__itemSub {
+      margin: 2px 5px 0px 15px;
+      border-left: 1px solid #666;
+      padding: 0px 0px 0px 5px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-in;
+      &.active {
+        max-height: 200px;
+        @include mobile {
+          margin: 5px 0px 0px 5px;
+          padding: 0px 0px 0px 0px;
+        }
+      }
+      &__detail {
+        display: block;
+        margin: 5px 0px 0px 0px;
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        color: #666;
+        box-sizing: border-box;
+        padding: 5px, 0px, 0px, 0px;
+        @include mobile {
+          font-size: 0px;
+          margin: 0px 0px 0px 3px;
+          color: #666;
+        }
+      }
+      &__detail:hover {
+        color: #1e6e91;
+      }
+    }
+  }
+}
+
+//sideBar footer
+.sidebar-container {
+  position: relative;
+  &__footer {
+    @include mobile {
+      display: none;
+    }
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(146, 194, 241);
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    gap: 15px;
+    &__logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-image: url("sitba.png");
+      background-size: cover;
+      background-position: center;
+    }
+    &__data {
+      &__title {
+        font-weight: 500;
+        color: #666;
+      }
+      &__subtitle {
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.644);
+        font-size: 0.8em;
+      }
+    }
+  }
+}
+
+.outletDropdown {
+  position: absolute;
+  right: 1%;
+  top: 10px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.switch > span {
+  position: absolute;
+  top: 8px;
+  pointer-events: none;
+  font-family: Helvetica, "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  width: 50%;
+  text-align: center;
+}
+
+input.check-toggle-round-flat:checked ~ .off {
+  color: #000000;
+}
+
+input.check-toggle-round-flat:checked ~ .on {
+  color: #fff;
+}
+
+.switch > span.on {
+  left: 0;
+  padding-left: 0px;
+  color: black;
+}
+
+.switch > span.off {
+  right: 0;
+  padding-right: 2px;
+  color: #fff;
+}
+
+.check-toggle {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden;
+}
+.check-toggle + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input.check-toggle-round-flat + label {
+  padding: 2px;
+  width: 99px;
+  height: 35px;
+  background-color: #33ade1;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -o-border-radius: 60px;
+  border-radius: 60px;
+}
+input.check-toggle-round-flat + label:before,
+input.check-toggle-round-flat + label:after {
+  display: block;
+  position: absolute;
+  content: "";
+}
+
+input.check-toggle-round-flat + label:before {
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  right: 2px;
+  background-color: rgb(146, 194, 241);
+  -webkit-moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -o-border-radius: 60px;
+  border-radius: 60px;
+}
+input.check-toggle-round-flat + label:after {
+  top: 4px;
+  left: 4px;
+  bottom: 4px;
+  width: 48px;
+  background-color: white;
+  -webkit-border-radius: 52px;
+  -moz-border-radius: 52px;
+  -ms-border-radius: 52px;
+  -o-border-radius: 52px;
+  border-radius: 52px;
+  -webkit-transition: margin 0.2s;
+  -moz-transition: margin 0.2s;
+  -o-transition: margin 0.2s;
+  transition: margin 0.2s;
+}
+
+input.check-toggle-round-flat:checked + label {
+}
+
+input.check-toggle-round-flat:checked + label:after {
+  margin-left: 44px;
+}

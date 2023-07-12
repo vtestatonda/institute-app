@@ -1,0 +1,11 @@
+.ouflow-container {
+  display: inline;
+  &__button {
+    cursor: pointer;
+    display: inline;
+  }
+}
+
+.errorMessage {
+  text-align: start;
+}
