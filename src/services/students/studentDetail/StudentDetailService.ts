@@ -166,7 +166,7 @@ export class StudentDetailService implements IStudentDetailService {
   async getPeriods(courseId: number): Promise<ICoursePeriodsDetail[]> {
     let response = await axios
       .get(
-        "/rest/v1/coursePeriodo?select=*,courseId(*)&courseId=eq." + courseId
+        "/rest/v1/coursePeriodo?select=*&courseId(*)&courseId=eq." + courseId
       )
       .catch((error) => {
         console.log(error.toJSON());
@@ -244,7 +244,6 @@ export class StudentDetailService implements IStudentDetailService {
     studentId: number
   ): Promise<IBasicDataStudentDetail> => {
     const studentService = container.resolve(StudentService);
-
     let student: IStudentExpandid = await studentService.searchStudent(
       Number(studentId)
     );
